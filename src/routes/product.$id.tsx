@@ -95,7 +95,7 @@ function PDP() {
             <div>
               <p className="text-sm font-medium mb-2">Cor: <span className="text-muted-foreground font-normal">{color}</span></p>
               <div className="flex gap-2">
-                {product.colors.map(c => (
+                {product.colors.map((c: string) => (
                   <button key={c} onClick={() => setColor(c)} aria-label={`Cor ${c}`} className={`w-9 h-9 rounded-full border-2 transition ${color === c ? "border-primary ring-2 ring-primary/20" : "border-border hover:border-foreground/40"}`} style={{ backgroundColor: c }} />
                 ))}
               </div>
