@@ -1,29 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/_components/common/SiteHeader";
+import { SiteFooter } from "@/_components/common/SiteFooter";
+import { HeroSlider } from "@/_components/ecommerce/HeroSlider";
+import { ProductCarousel } from "@/_components/ecommerce/ProductCarousel";
+import { FirstVisitModal } from "@/_components/ecommerce/FirstVisitModal";
+import { BlogSection } from "@/_components/ecommerce/BlogSection";
+import { Newsletter } from "@/_components/ecommerce/Newsletter";
+import { framesProducts, sunglassesProducts, prescriptionProducts, contactsProducts } from "@/lib/dunamis-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "DUNAMIS — Eyewear & Cuidado Ocular Premium" },
+      { name: "description", content: "Armações, óculos de sol, óculos de grau e lentes de contato premium. Frete grátis acima de R$ 299." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <SiteHeader />
+      <HeroSlider />
+      <ProductCarousel title="Armações mais vendidas" subtitle="Curadoria do mês — design atemporal" products={framesProducts} />
+      <ProductCarousel title="Óculos de sol em destaque" subtitle="UV400 e lentes polarizadas" products={sunglassesProducts} />
+      <ProductCarousel title="Óculos de grau favoritos" subtitle="Lentes antirreflexo e blue light disponíveis" products={prescriptionProducts} />
+      <ProductCarousel title="Lentes de contato" subtitle="Conforto e hidratação para o dia inteiro" products={contactsProducts} />
+      <BlogSection />
+      <Newsletter />
+      <SiteFooter />
+      <FirstVisitModal />
+    </>
   );
 }
