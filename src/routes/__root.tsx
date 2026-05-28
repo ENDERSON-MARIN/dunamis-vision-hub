@@ -74,18 +74,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Lovable App" },
       { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "DUNAMIS — Eyewear & Cuidado Ocular Premium" },
+      { name: "description", content: "Armações, óculos de sol, óculos de grau e lentes de contato selecionados. Frete grátis acima de R$ 299, 30 dias de troca." },
+      { name: "author", content: "DUNAMIS" },
+      { property: "og:title", content: "DUNAMIS — Eyewear Premium" },
+      { property: "og:description", content: "Veja o mundo com intenção. Armações premium e cuidado ocular completo." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -93,10 +99,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -112,9 +114,16 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <StoreProvider>
+        <main>
+          <Outlet />
+        </main>
+      </StoreProvider>
     </QueryClientProvider>
   );
 }
