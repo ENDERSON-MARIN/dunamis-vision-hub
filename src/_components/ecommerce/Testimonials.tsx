@@ -35,6 +35,30 @@ const testimonials: Testimonial[] = [
     rating: 5,
     serviceLabel: "Óculos de Grau Square Blue Light",
   },
+  {
+    name: "Lucas Pereira",
+    role: "Designer · Florianópolis",
+    avatarUrl: "https://i.pravatar.cc/120?img=15",
+    text: "Pedi armação titânio e veio com ajuste perfeito. Em duas semanas já tinha esquecido que estava usando óculos novos — leveza absurda e visual minimalista.",
+    rating: 5,
+    serviceLabel: "Armação Titanium Round",
+  },
+  {
+    name: "Beatriz Souza",
+    role: "Publicitária · Rio de Janeiro",
+    avatarUrl: "https://i.pravatar.cc/120?img=49",
+    text: "As lentes de contato chegaram bem embaladas e a consultoria por WhatsApp foi um diferencial. Recomendo para quem nunca usou — o suporte tira todo o medo.",
+    rating: 5,
+    serviceLabel: "Lentes de Contato Mensais",
+  },
+  {
+    name: "Diego Martins",
+    role: "Engenheiro · Porto Alegre",
+    avatarUrl: "https://i.pravatar.cc/120?img=68",
+    text: "Solar polarizado impecável para dirigir. Reduziu o brilho do asfalto e o ajuste de nariz foi sob medida na loja. Vale demais o preço cobrado.",
+    rating: 5,
+    serviceLabel: "Solar Polarizado Wayfarer",
+  },
 ];
 
 const trustPillars = [
@@ -93,59 +117,66 @@ export function Testimonials() {
         </div>
 
         {/* Grid */}
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t) => (
-            <article
-              key={t.name}
-              className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_12px_32px_-16px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_2px_4px_rgba(15,23,42,0.06),0_20px_48px_-20px_rgba(15,23,42,0.18)] md:p-7"
-            >
-              {/* Top row */}
-              <div className="flex items-center justify-between">
-                <Stars rating={t.rating} size={18} />
-                <div className="flex items-center gap-1.5 rounded-full bg-green-50 px-2.5 py-1">
-                  <BadgeCheck className="h-3.5 w-3.5 text-green-600" strokeWidth={2.5} />
-                  <span className="text-[11px] font-medium uppercase tracking-wide text-green-700">
-                    Comprador Verificado
+        <div className="group/marquee mt-12 marquee-mask relative overflow-hidden">
+          <div
+            className="flex w-max gap-6 animate-marquee-x [animation-play-state:running] group-hover/marquee:[animation-play-state:paused]"
+            style={{ ["--marquee-duration" as never]: "60s" }}
+          >
+            {[...testimonials, ...testimonials].map((t, idx) => (
+              <article
+                key={`${t.name}-${idx}`}
+                aria-hidden={idx >= testimonials.length ? true : undefined}
+                className="group relative flex w-[88vw] max-w-[420px] shrink-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_12px_32px_-16px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_2px_4px_rgba(15,23,42,0.06),0_20px_48px_-20px_rgba(15,23,42,0.18)] sm:w-[420px] md:p-7"
+              >
+                {/* Top row */}
+                <div className="flex items-center justify-between">
+                  <Stars rating={t.rating} size={18} />
+                  <div className="flex items-center gap-1.5 rounded-full bg-green-50 px-2.5 py-1">
+                    <BadgeCheck className="h-3.5 w-3.5 text-green-600" strokeWidth={2.5} />
+                    <span className="text-[11px] font-medium uppercase tracking-wide text-green-700">
+                      Comprador Verificado
+                    </span>
+                  </div>
+                </div>
+
+                {/* Quote text */}
+                <div className="relative mt-5 flex-1">
+                  <Quote
+                    className="absolute -left-1 -top-1 h-7 w-7 text-slate-100"
+                    strokeWidth={1.5}
+                    aria-hidden
+                  />
+                  <p className="relative pl-6 font-[Inter] text-[15px] leading-[1.7] text-slate-700">
+                    {t.text}
+                  </p>
+                </div>
+
+                {/* Product tag */}
+                <div className="mt-6">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-sky-100 bg-sky-50 px-3 py-1.5 text-xs font-medium text-sky-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
+                    {t.serviceLabel}
                   </span>
                 </div>
-              </div>
 
-              {/* Quote text */}
-              <div className="relative mt-5 flex-1">
-                <Quote
-                  className="absolute -left-1 -top-1 h-7 w-7 text-slate-100"
-                  strokeWidth={1.5}
-                  aria-hidden
-                />
-                <p className="relative pl-6 font-[Inter] text-[15px] leading-[1.7] text-slate-700">
-                  {t.text}
-                </p>
-              </div>
-
-              {/* Product tag */}
-              <div className="mt-6">
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-sky-100 bg-sky-50 px-3 py-1.5 text-xs font-medium text-sky-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
-                  {t.serviceLabel}
-                </span>
-              </div>
-
-              {/* Footer profile */}
-              <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
-                <Avatar className="h-11 w-11 ring-2 ring-slate-100">
-                  <AvatarImage src={t.avatarUrl} alt={t.name} />
-                  <AvatarFallback className="bg-sky-50 text-sky-700">
-                    {t.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-[Outfit] text-sm font-semibold text-slate-900">{t.name}</p>
-                  <p className="text-xs text-slate-500">{t.role}</p>
+                {/* Footer profile */}
+                <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+                  <Avatar className="h-11 w-11 ring-2 ring-slate-100">
+                    <AvatarImage src={t.avatarUrl} alt={t.name} />
+                    <AvatarFallback className="bg-sky-50 text-sky-700">
+                      {t.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-[Outfit] text-sm font-semibold text-slate-900">{t.name}</p>
+                    <p className="text-xs text-slate-500">{t.role}</p>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
+
 
         {/* Trust ribbon */}
         <div className="mt-12 rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
