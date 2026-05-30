@@ -5,6 +5,7 @@ import { HeroSlider } from "@/_components/ecommerce/HeroSlider";
 import { ProductCarousel } from "@/_components/ecommerce/ProductCarousel";
 import { FirstVisitModal } from "@/_components/ecommerce/FirstVisitModal";
 import { BlogSection } from "@/_components/ecommerce/BlogSection";
+import { Testimonials } from "@/_components/ecommerce/Testimonials";
 import { Newsletter } from "@/_components/ecommerce/Newsletter";
 import { framesProducts, sunglassesProducts, prescriptionProducts, contactsProducts } from "@/lib/dunamis-data";
 
@@ -27,6 +28,7 @@ function Index() {
       <ProductCarousel title="Óculos de sol em destaque" subtitle="UV400 e lentes polarizadas" products={sunglassesProducts} />
       <ProductCarousel title="Óculos de grau favoritos" subtitle="Lentes antirreflexo e blue light disponíveis" products={prescriptionProducts} />
       <ProductCarousel title="Lentes de contato" subtitle="Conforto e hidratação para o dia inteiro" products={contactsProducts} />
+      <Testimonials />
       <BlogSection />
       <Newsletter />
       <SiteFooter />
