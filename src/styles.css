@@ -116,4 +116,16 @@
     background-size: 1000px 100%;
     animation: shimmer 2s infinite linear;
   }
+  @keyframes marquee-x {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee-x {
+    animation: marquee-x var(--marquee-duration, 50s) linear infinite;
+    will-change: transform;
+  }
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
 }
