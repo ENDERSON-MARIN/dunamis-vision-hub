@@ -35,6 +35,30 @@ const testimonials: Testimonial[] = [
     rating: 5,
     serviceLabel: "Óculos de Grau Square Blue Light",
   },
+  {
+    name: "Lucas Pereira",
+    role: "Designer · Florianópolis",
+    avatarUrl: "https://i.pravatar.cc/120?img=15",
+    text: "Pedi armação titânio e veio com ajuste perfeito. Em duas semanas já tinha esquecido que estava usando óculos novos — leveza absurda e visual minimalista.",
+    rating: 5,
+    serviceLabel: "Armação Titanium Round",
+  },
+  {
+    name: "Beatriz Souza",
+    role: "Publicitária · Rio de Janeiro",
+    avatarUrl: "https://i.pravatar.cc/120?img=49",
+    text: "As lentes de contato chegaram bem embaladas e a consultoria por WhatsApp foi um diferencial. Recomendo para quem nunca usou — o suporte tira todo o medo.",
+    rating: 5,
+    serviceLabel: "Lentes de Contato Mensais",
+  },
+  {
+    name: "Diego Martins",
+    role: "Engenheiro · Porto Alegre",
+    avatarUrl: "https://i.pravatar.cc/120?img=68",
+    text: "Solar polarizado impecável para dirigir. Reduziu o brilho do asfalto e o ajuste de nariz foi sob medida na loja. Vale demais o preço cobrado.",
+    rating: 5,
+    serviceLabel: "Solar Polarizado Wayfarer",
+  },
 ];
 
 const trustPillars = [
