@@ -1,7 +1,8 @@
-import { Link } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import authHero from "@/assets/auth-hero.jpg";
 import { Logo } from "@/_components/common/Logo";
+
+
 
 interface AuthLayoutProps {
   children: React.ReactNode;
