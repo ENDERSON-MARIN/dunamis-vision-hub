@@ -30,9 +30,7 @@ export function AuthLayout({
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-900/20 to-slate-900/80" />
         <div className="relative z-10 flex h-full flex-col justify-between p-10 text-white">
-          <Link to="/" className="inline-flex items-center gap-2 text-white">
-            <Logo />
-          </Link>
+          <Logo className="[&>span:last-child]:text-white [&_span:first-child]:bg-white [&_span:first-child]:text-slate-900" />
           <div className="max-w-md space-y-4">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider backdrop-blur">
               <ShieldCheck className="h-3.5 w-3.5" /> {eyebrow}
@@ -47,10 +45,9 @@ export function AuthLayout({
       <section className="flex min-h-screen items-center justify-center px-5 py-10 sm:px-8 lg:px-12">
         <div className="w-full max-w-md">
           <div className="mb-6 flex items-center justify-between lg:hidden">
-            <Link to="/" aria-label="DUNAMIS — Home">
-              <Logo />
-            </Link>
+            <Logo />
           </div>
+
           <div className="rounded-[var(--radius)] border border-slate-200 bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_24px_48px_-24px_rgba(15,23,42,0.18)] sm:p-9">
             {children}
           </div>
