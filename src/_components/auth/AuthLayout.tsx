@@ -62,12 +62,7 @@ export function AuthLayout({
   );
 }
 
-export function GoogleIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <path fill="#EA4335" d="M12 10.2v3.9h5.5c-.24 1.4-1.66 4.1-5.5 4.1-3.3 0-6-2.74-6-6.1s2.7-6.1 6-6.1c1.88 0 3.14.8 3.86 1.48l2.64-2.55C16.83 3.36 14.66 2.4 12 2.4 6.92 2.4 2.8 6.52 2.8 11.6S6.92 20.8 12 20.8c6.92 0 9.5-4.86 9.5-9.36 0-.62-.06-1.1-.16-1.6H12z" />
-      <path fill="#34A853" d="M3.88 7.5l3.2 2.35C7.92 7.96 9.78 6.5 12 6.5c1.88 0 3.14.8 3.86 1.48l2.64-2.55C16.83 3.36 14.66 2.4 12 2.4 8.36 2.4 5.2 4.46 3.88 7.5z" opacity="0" />
-      <path fill="#4A90E2" d="" />
-    </svg>
+    </div>
   );
 }
+
