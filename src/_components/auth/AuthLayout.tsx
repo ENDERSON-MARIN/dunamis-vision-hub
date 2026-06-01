@@ -62,7 +62,5 @@ export function AuthLayout({
   );
 }
 
-    </div>
-  );
-}
+
 
